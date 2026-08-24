@@ -1,0 +1,81 @@
+Metadata-Version: 2.4
+Name: credit-risk-intelligence
+Version: 0.1.0
+Summary: Explainable credit-default modeling with a cost-controlled SageMaker path.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: joblib>=1.4
+Requires-Dist: numpy>=2.0
+Requires-Dist: pandas>=2.2
+Requires-Dist: pyarrow>=18
+Requires-Dist: scikit-learn>=1.6
+Requires-Dist: ucimlrepo>=0.0.7
+Provides-Extra: dev
+Requires-Dist: pytest>=8.3; extra == "dev"
+Requires-Dist: ruff>=0.9; extra == "dev"
+
+# Credit Risk Intelligence
+
+An explainable machine-learning project for estimating credit-card default risk. The project starts with a fully reproducible local workflow and later mirrors the selected model in a short, cost-controlled Amazon SageMaker training job.
+
+## Decision supported
+
+The model estimates the probability that a client will default in the following month. It is a portfolio demonstration, not an automated credit-decision system. Predictions must not be used to approve, deny, or price real financial products.
+
+## Dataset
+
+The project uses **Default of Credit Card Clients**, published by the UCI Machine Learning Repository:
+
+- 30,000 records
+- 23 predictive variables
+- Binary classification target
+- CC BY 4.0 license
+- DOI: [10.24432/C55S3H](https://doi.org/10.24432/C55S3H)
+
+Suggested citation: Yeh, I. (2009). *Default of Credit Card Clients*. UCI Machine Learning Repository.
+
+## Local workflow
+
+```text
+UCI dataset
+    ↓
+schema normalization + validation
+    ↓
+stratified train/test split
+    ↓
+logistic regression ↔ gradient boosting
+    ↓
+ROC-AUC + PR-AUC + recall + calibration
+    ↓
+model artifact + batch predictions + dashboard snapshot
+```
+
+## Run locally
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[dev]'
+credit-risk all
+pytest
+```
+
+Generated files are intentionally ignored by Git:
+
+- `data/raw/default_credit.csv`
+- `data/processed/test_predictions.parquet`
+- `artifacts/model.joblib`
+- `artifacts/metrics.json`
+
+## AWS design
+
+The cloud stage will upload prepared data to Amazon S3, launch a single managed SageMaker training job, run offline Batch Transform inference, download the evidence, and remove temporary resources. No persistent inference endpoint is required.
+
+## Responsible-use boundaries
+
+- No real customer or banking data
+- No protected attributes used for a real decision
+- Metrics reported beyond accuracy because defaults are imbalanced
+- Model output treated as decision support, never as an automatic verdict
+- Cloud resources created only during controlled demonstrations
+
