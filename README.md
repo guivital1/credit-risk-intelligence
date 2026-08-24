@@ -44,6 +44,20 @@ credit-risk all
 pytest
 ```
 
+Preview the AWS plan without creating resources:
+
+```bash
+python -m pip install -e '.[aws,dev]'
+credit-risk-cloud plan
+```
+
+Cloud mutations require an explicit safeguard flag:
+
+```bash
+credit-risk-cloud deploy --execute
+credit-risk-cloud cleanup --execute
+```
+
 Generated files are intentionally ignored by Git:
 
 - `data/raw/default_credit.csv`
@@ -62,4 +76,3 @@ The cloud stage will upload prepared data to Amazon S3, launch a single managed 
 - Metrics reported beyond accuracy because defaults are imbalanced
 - Model output treated as decision support, never as an automatic verdict
 - Cloud resources created only during controlled demonstrations
-

@@ -21,3 +21,14 @@ Batch input  → SageMaker Batch Transform → S3 predictions
 
 Batch inference avoids a continuously provisioned endpoint. Every cloud command will require an explicit profile and region, use tagged resources, and include a cleanup command.
 
+### Guardrails
+
+- AWS profile fixed to `guilherme-admin`
+- Region fixed to `us-east-2`
+- Private encrypted S3 bucket with seven-day lifecycle expiration
+- Project-scoped IAM role and inline policy
+- One `ml.m5.large` training instance, capped at 15 minutes
+- One `ml.m5.large` Batch Transform instance
+- No endpoint configuration or real-time endpoint
+- Mutating commands require `--execute`
+- Cleanup refuses to run without the exact local evidence file
