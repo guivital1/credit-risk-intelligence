@@ -95,9 +95,18 @@ Generated files are intentionally ignored by Git:
 
 ## AWS design
 
-The cloud stage will upload prepared data to Amazon S3, launch a single managed SageMaker training job, run offline Batch Transform inference, download the evidence, and remove temporary resources. No persistent inference endpoint is required.
+The cloud stage uploads prepared data to Amazon S3, launches a single managed SageMaker training job, runs offline Batch Transform inference, downloads the evidence, and removes temporary resources. No persistent inference endpoint is required.
 
-The workflow is implementation-complete and locally validated. The first managed run is awaiting the account-level SageMaker quota requested for one training and one Batch Transform instance. See the full [architecture and guardrails](docs/architecture.md).
+### Managed run evidence
+
+| Stage | Status | Duration / result |
+|---|---|---:|
+| SageMaker XGBoost training | Completed | 145 seconds |
+| SageMaker Batch Transform | Completed | 112 seconds |
+| Managed evaluation | Completed | ROC-AUC 0.783 · PR-AUC 0.561 |
+| Resource cleanup | Completed | No persistent endpoint |
+
+The managed evaluation scored 4,500 held-out rows in `us-east-2`. The project-specific S3 bucket, model resource, and IAM execution role were deleted after the evidence was downloaded. See the full [architecture and guardrails](docs/architecture.md).
 
 ## Responsible-use boundaries
 

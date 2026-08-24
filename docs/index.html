@@ -12,7 +12,7 @@
   <main>
     <nav class="nav">
       <a class="brand" href="#">CREDIT/RISK</a>
-      <span class="status"><i></i> offline model evidence</span>
+      <span class="status"><i></i> local + managed evidence</span>
       <a href="https://github.com/guivital1/credit-risk-intelligence">source ↗</a>
     </nav>
 
@@ -20,7 +20,7 @@
       <div>
         <p class="eyebrow">EXPLAINABLE DEFAULT MODELING</p>
         <h1>Risk is a probability,<br><em>not a verdict.</em></h1>
-        <p class="lede">A local-first machine-learning workflow for comparing credit-default models, studying trade-offs, and preparing cost-controlled SageMaker evidence.</p>
+        <p class="lede">A local-first machine-learning workflow for comparing credit-default models, studying trade-offs, and validating offline inference with cost-controlled SageMaker evidence.</p>
       </div>
       <div class="dial" aria-label="Observed test default rate">
         <span id="heroRate">—</span>
@@ -49,6 +49,19 @@
         <div class="panel-head"><span>03</span><h2>Calibration</h2><small>predicted vs observed</small></div>
         <div id="calibration" class="calibration"></div>
       </article>
+    </section>
+
+    <section class="cloud-evidence" aria-label="Managed AWS evidence">
+      <div class="panel-head"><span>04</span><h2>Managed AWS evidence</h2><small>completed + cleaned</small></div>
+      <div class="cloud-flow">
+        <article><small>training</small><strong id="awsTraining">—</strong><span>SageMaker XGBoost</span></article>
+        <i>→</i>
+        <article><small>batch inference</small><strong id="awsTransform">—</strong><span>Batch Transform</span></article>
+        <i>→</i>
+        <article><small>managed PR-AUC</small><strong id="awsPr">—</strong><span id="awsRows">— rows</span></article>
+        <i>→</i>
+        <article><small>cleanup</small><strong id="awsCleanup">—</strong><span>no live endpoint</span></article>
+      </div>
     </section>
 
     <footer>

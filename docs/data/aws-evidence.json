@@ -1,0 +1,13 @@
+{
+  "region": "us-east-2",
+  "training_status": "Completed",
+  "training_seconds": 145,
+  "transform_status": "Completed",
+  "transform_seconds": 112,
+  "test_rows": 4500,
+  "roc_auc": 0.782944,
+  "pr_auc": 0.561127,
+  "persistent_endpoint": false,
+  "cleanup_complete": true,
+  "completed_at": "2026-08-24T03:50:33Z"
+}

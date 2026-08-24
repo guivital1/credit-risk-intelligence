@@ -2,9 +2,13 @@ const percent = value => `${(value * 100).toFixed(1)}%`;
 const score = value => Number(value).toFixed(3);
 
 async function loadDashboard() {
-  const response = await fetch("data/dashboard.json");
+  const [response, awsResponse] = await Promise.all([
+    fetch("data/dashboard.json"),
+    fetch("data/aws-evidence.json"),
+  ]);
   if (!response.ok) throw new Error(`Dashboard data unavailable: ${response.status}`);
-  const data = await response.json();
+  if (!awsResponse.ok) throw new Error(`AWS evidence unavailable: ${awsResponse.status}`);
+  const [data, aws] = await Promise.all([response.json(), awsResponse.json()]);
   const selected = data.models.find(model => model.name === data.summary.selected_model);
 
   document.querySelector("#heroRate").textContent = percent(data.summary.default_rate);
@@ -44,9 +48,14 @@ async function loadDashboard() {
     group.innerHTML = `<i style="height:${Math.max(2, bin.average_probability * 100)}%" title="Predicted ${percent(bin.average_probability)}"></i><i class="observed" style="height:${Math.max(2, bin.observed_default_rate * 100)}%" title="Observed ${percent(bin.observed_default_rate)}"></i><small>${index + 1}</small>`;
     calibration.appendChild(group);
   });
+
+  document.querySelector("#awsTraining").textContent = `${aws.training_seconds}s`;
+  document.querySelector("#awsTransform").textContent = `${aws.transform_seconds}s`;
+  document.querySelector("#awsPr").textContent = score(aws.pr_auc);
+  document.querySelector("#awsRows").textContent = `${aws.test_rows.toLocaleString("en-US")} rows`;
+  document.querySelector("#awsCleanup").textContent = aws.cleanup_complete ? "complete" : "pending";
 }
 
 loadDashboard().catch(error => {
   document.querySelector("#disclaimer").textContent = error.message;
 });
-
