@@ -1,0 +1,45 @@
+{
+  "run_date": "2026-08-24",
+  "dataset_rows": 30000,
+  "test_rows": 6000,
+  "selected_model": "gradient_boosting",
+  "selection_metric": "pr_auc",
+  "metrics": {
+    "roc_auc": 0.779525,
+    "pr_auc": 0.552118,
+    "precision": 0.655693,
+    "recall": 0.360211,
+    "brier_score": 0.135328
+  },
+  "promotion": {
+    "decision": "promote",
+    "checks_passed": [
+      "minimum_pr_auc_gain",
+      "maximum_brier_degradation",
+      "minimum_recall"
+    ]
+  },
+  "monitoring": {
+    "prediction_psi": 0.001227,
+    "prediction_status": "stable",
+    "feature_status": {
+      "limit_bal": "stable",
+      "age": "stable",
+      "bill_amt1": "stable",
+      "pay_amt1": "stable"
+    },
+    "governance_slices": [
+      "sex",
+      "education",
+      "marriage"
+    ]
+  },
+  "top_features": [
+    "pay_0",
+    "pay_2",
+    "bill_amt1",
+    "limit_bal",
+    "pay_3"
+  ],
+  "artifact_sha256": "7b3f65a1965b925383d20d61b9af311de5752bcd5e8f9b73c7bf3797044ffc92"
+}

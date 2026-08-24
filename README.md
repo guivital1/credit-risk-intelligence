@@ -20,13 +20,16 @@ An explainable machine-learning project for estimating credit-card default risk.
 - Evaluation centered on PR-AUC, ROC-AUC, calibration, and risk-band behavior
 - Offline, explainable decision support rather than an automatic credit verdict
 - Cost-controlled SageMaker design with encrypted S3, Batch Transform, and no endpoint
+- Versioned model registry with optional MLflow experiment tracking
+- Prediction/feature drift, governance slices and explicit promotion/rollback policy
+- Held-out permutation importance and generated model card
 
 ## Local model results
 
 | Model | ROC-AUC | PR-AUC | Precision | Recall | Brier score |
 |---|---:|---:|---:|---:|---:|
-| Logistic regression | 0.708 | 0.490 | 0.367 | 0.620 | 0.209 |
-| **Gradient boosting** | **0.780** | **0.553** | **0.665** | 0.370 | **0.135** |
+| Logistic regression | 0.759 | 0.524 | 0.489 | 0.553 | 0.186 |
+| **Gradient boosting** | **0.780** | **0.552** | **0.656** | 0.360 | **0.135** |
 
 Gradient boosting is selected by PR-AUC. The dashboard keeps both models visible so that performance, calibration, and operating trade-offs remain inspectable.
 
@@ -92,6 +95,23 @@ Generated files are intentionally ignored by Git:
 - `data/processed/test_predictions.parquet`
 - `artifacts/model.joblib`
 - `artifacts/metrics.json`
+- `artifacts/monitoring.json`
+- `artifacts/model_registry.json`
+- `artifacts/model_card.md`
+
+Install the optional MLflow integration when experiment browsing is needed:
+
+```bash
+python -m pip install -e '.[mlops]'
+mlflow ui --backend-store-uri ./mlruns
+```
+
+The lightweight JSON registry remains the default so CI and the portfolio demo
+do not require a persistent tracking server. See the full
+[model-governance policy](docs/model-governance.md).
+The compact [versioned governance evidence](docs/data/model-governance-evidence.json)
+keeps the latest reproducible metrics, drift status and artifact digest visible
+without publishing the dataset or serialized model.
 
 ## AWS design
 
