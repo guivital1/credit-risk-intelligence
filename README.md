@@ -5,6 +5,10 @@
 [![Python](https://img.shields.io/badge/Python-3.11%2B-2563eb)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-84cc16.svg)](LICENSE)
 
+<p align="center">
+  <img src="docs/assets/social-preview.png" alt="Credit Risk Intelligence — explainable default-risk modeling" width="100%">
+</p>
+
 An explainable machine-learning project for estimating credit-card default risk. The project starts with a fully reproducible local workflow and later mirrors the selected model in a short, cost-controlled Amazon SageMaker training job.
 
 **[Explore the interactive risk dashboard](https://guivital1.github.io/credit-risk-intelligence/)**

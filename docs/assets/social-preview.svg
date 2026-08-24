@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#d9ddcf" stroke-width="1" opacity="0.65"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#17306b" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="#f3f1e8"/>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+  <circle cx="1124" cy="96" r="190" fill="#d8ff52" opacity="0.9"/>
+  <circle cx="1160" cy="630" r="230" fill="#2457d6" opacity="0.08"/>
+
+  <g transform="translate(72 70)">
+    <rect width="1136" height="500" rx="32" fill="#fffdf7" stroke="#18233f" stroke-width="2" filter="url(#shadow)"/>
+
+    <g transform="translate(48 46)">
+      <rect width="156" height="34" rx="17" fill="#18233f"/>
+      <text x="78" y="23" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" fill="#ffffff">DATA SCIENCE</text>
+
+      <text x="0" y="106" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="800" fill="#18233f">Credit Risk</text>
+      <text x="0" y="169" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="800" fill="#2457d6">Intelligence</text>
+      <text x="0" y="216" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#526078">Explainable default-risk modeling from data to evidence.</text>
+
+      <g transform="translate(0 278)">
+        <rect width="154" height="50" rx="14" fill="#eef2ff" stroke="#2457d6"/>
+        <text x="77" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#2457d6">30K records</text>
+        <rect x="170" width="154" height="50" rx="14" fill="#f1ffd1" stroke="#91b900"/>
+        <text x="247" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#486000">ROC-AUC .780</text>
+        <rect x="340" width="174" height="50" rx="14" fill="#f8f7f1" stroke="#a8ad9d"/>
+        <text x="427" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#18233f">AWS SageMaker</text>
+      </g>
+
+      <text x="0" y="402" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="1" fill="#667085">GUIVITAL1 · PYTHON · MACHINE LEARNING · RESPONSIBLE AI</text>
+    </g>
+
+    <g transform="translate(706 72)">
+      <rect width="370" height="356" rx="24" fill="#18233f"/>
+      <text x="28" y="43" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2" fill="#9fb3ee">RISK SIGNAL</text>
+
+      <line x1="34" y1="286" x2="336" y2="286" stroke="#65708a" stroke-width="1"/>
+      <line x1="34" y1="92" x2="34" y2="286" stroke="#65708a" stroke-width="1"/>
+      <path d="M34 267 C76 260 95 246 126 238 C168 228 182 196 214 177 C246 158 259 128 288 111 C308 99 320 88 336 68" fill="none" stroke="#d8ff52" stroke-width="7" stroke-linecap="round"/>
+      <path d="M34 267 C76 260 95 246 126 238 C168 228 182 196 214 177 C246 158 259 128 288 111 C308 99 320 88 336 68 L336 286 L34 286Z" fill="#2457d6" opacity="0.28"/>
+
+      <circle cx="214" cy="177" r="10" fill="#fffdf7" stroke="#d8ff52" stroke-width="5"/>
+      <rect x="224" y="132" width="108" height="34" rx="10" fill="#fffdf7"/>
+      <text x="278" y="154" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#18233f">review band</text>
+
+      <text x="34" y="325" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#aeb8d0">LOW</text>
+      <text x="300" y="325" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#aeb8d0">HIGH</text>
+    </g>
+  </g>
+</svg>
