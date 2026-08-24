@@ -3,46 +3,46 @@
     "scored_rows": 6000,
     "observed_defaults": 1327,
     "default_rate": 0.221167,
-    "average_probability": 0.22126,
+    "average_probability": 0.221487,
     "selected_model": "gradient_boosting",
     "selection_metric": "pr_auc"
   },
   "models": [
     {
       "name": "logistic_regression",
-      "roc_auc": 0.708115,
-      "pr_auc": 0.490444,
-      "precision": 0.367247,
-      "recall": 0.620196,
-      "f1": 0.461323,
-      "brier_score": 0.208898,
+      "roc_auc": 0.758771,
+      "pr_auc": 0.524132,
+      "precision": 0.489333,
+      "recall": 0.553127,
+      "f1": 0.519278,
+      "brier_score": 0.186457,
       "confusion_matrix": [
         [
-          3255,
-          1418
+          3907,
+          766
         ],
         [
-          504,
-          823
+          593,
+          734
         ]
       ]
     },
     {
       "name": "gradient_boosting",
-      "roc_auc": 0.779909,
-      "pr_auc": 0.553289,
-      "precision": 0.665312,
-      "recall": 0.370008,
-      "f1": 0.475545,
-      "brier_score": 0.134793,
+      "roc_auc": 0.779525,
+      "pr_auc": 0.552118,
+      "precision": 0.655693,
+      "recall": 0.360211,
+      "f1": 0.464981,
+      "brier_score": 0.135328,
       "confusion_matrix": [
         [
-          4426,
-          247
+          4422,
+          251
         ],
         [
-          836,
-          491
+          849,
+          478
         ]
       ]
     }
@@ -50,77 +50,77 @@
   "risk_bands": [
     {
       "band": "low",
-      "clients": 3985,
-      "observed_default_rate": 0.11468,
-      "average_probability": 0.111508
+      "clients": 3967,
+      "observed_default_rate": 0.113184,
+      "average_probability": 0.112549
     },
     {
       "band": "review",
-      "clients": 1277,
-      "observed_default_rate": 0.296789,
-      "average_probability": 0.303375
+      "clients": 1304,
+      "observed_default_rate": 0.306748,
+      "average_probability": 0.302811
     },
     {
       "band": "high",
-      "clients": 738,
-      "observed_default_rate": 0.665312,
-      "average_probability": 0.671808
+      "clients": 729,
+      "observed_default_rate": 0.655693,
+      "average_probability": 0.668825
     }
   ],
   "calibration": [
     {
       "bin": "(-0.001, 0.1]",
-      "clients": 1787,
-      "average_probability": 0.069273,
-      "observed_default_rate": 0.071069
+      "clients": 1730,
+      "average_probability": 0.06973,
+      "observed_default_rate": 0.068786
     },
     {
       "bin": "(0.1, 0.2]",
-      "clients": 2198,
-      "average_probability": 0.145845,
-      "observed_default_rate": 0.150136
+      "clients": 2237,
+      "average_probability": 0.145663,
+      "observed_default_rate": 0.147519
     },
     {
       "bin": "(0.2, 0.3]",
-      "clients": 690,
-      "average_probability": 0.240555,
-      "observed_default_rate": 0.236232
+      "clients": 715,
+      "average_probability": 0.239888,
+      "observed_default_rate": 0.233566
     },
     {
       "bin": "(0.3, 0.4]",
-      "clients": 388,
-      "average_probability": 0.343254,
-      "observed_default_rate": 0.335052
+      "clients": 384,
+      "average_probability": 0.343586,
+      "observed_default_rate": 0.354167
     },
     {
       "bin": "(0.4, 0.5]",
-      "clients": 199,
-      "average_probability": 0.443438,
-      "observed_default_rate": 0.432161
+      "clients": 205,
+      "average_probability": 0.445896,
+      "observed_default_rate": 0.473171
     },
     {
       "bin": "(0.5, 0.6]",
-      "clients": 141,
-      "average_probability": 0.54867,
-      "observed_default_rate": 0.524823
+      "clients": 169,
+      "average_probability": 0.550859,
+      "observed_default_rate": 0.508876
     },
     {
       "bin": "(0.6, 0.7]",
-      "clients": 306,
-      "average_probability": 0.655055,
-      "observed_default_rate": 0.624183
+      "clients": 280,
+      "average_probability": 0.661151,
+      "observed_default_rate": 0.657143
     },
     {
       "bin": "(0.7, 0.8]",
-      "clients": 258,
-      "average_probability": 0.738435,
-      "observed_default_rate": 0.771318
+      "clients": 251,
+      "average_probability": 0.737568,
+      "observed_default_rate": 0.733068
     },
     {
       "bin": "(0.8, 0.9]",
-      "clients": 33,
-      "average_probability": 0.832392,
-      "observed_default_rate": 0.818182
+      "clients": 29,
+      "average_probability": 0.835378,
+      "observed_default_rate": 0.827586
     }
   ],
   "disclaimer": "Educational portfolio project using a public research dataset. Not for real credit decisions."

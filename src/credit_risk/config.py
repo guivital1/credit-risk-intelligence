@@ -5,6 +5,9 @@ RAW_DATA_PATH = PROJECT_ROOT / "data" / "raw" / "default_credit.csv"
 PREDICTIONS_PATH = PROJECT_ROOT / "data" / "processed" / "test_predictions.parquet"
 MODEL_PATH = PROJECT_ROOT / "artifacts" / "model.joblib"
 METRICS_PATH = PROJECT_ROOT / "artifacts" / "metrics.json"
+MONITORING_PATH = PROJECT_ROOT / "artifacts" / "monitoring.json"
+REGISTRY_PATH = PROJECT_ROOT / "artifacts" / "model_registry.json"
+MODEL_CARD_PATH = PROJECT_ROOT / "artifacts" / "model_card.md"
 DASHBOARD_DATA_PATH = PROJECT_ROOT / "docs" / "data" / "dashboard.json"
 
 DATASET_ID = 350

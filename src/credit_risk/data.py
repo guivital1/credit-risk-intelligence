@@ -8,6 +8,32 @@ from ucimlrepo import fetch_ucirepo
 
 from credit_risk.config import DATASET_ID, RAW_DATA_PATH, TARGET_COLUMN
 
+UCI_FEATURE_ALIASES = {
+    "x1": "limit_bal",
+    "x2": "sex",
+    "x3": "education",
+    "x4": "marriage",
+    "x5": "age",
+    "x6": "pay_0",
+    "x7": "pay_2",
+    "x8": "pay_3",
+    "x9": "pay_4",
+    "x10": "pay_5",
+    "x11": "pay_6",
+    "x12": "bill_amt1",
+    "x13": "bill_amt2",
+    "x14": "bill_amt3",
+    "x15": "bill_amt4",
+    "x16": "bill_amt5",
+    "x17": "bill_amt6",
+    "x18": "pay_amt1",
+    "x19": "pay_amt2",
+    "x20": "pay_amt3",
+    "x21": "pay_amt4",
+    "x22": "pay_amt5",
+    "x23": "pay_amt6",
+}
+
 
 def normalize_column_name(value: object) -> str:
     """Convert source column names into stable snake_case names."""
@@ -17,7 +43,7 @@ def normalize_column_name(value: object) -> str:
         "default_payment_next_month_": TARGET_COLUMN,
         "y": TARGET_COLUMN,
     }
-    return aliases.get(name, name)
+    return aliases.get(name, UCI_FEATURE_ALIASES.get(name, name))
 
 
 def normalize_dataset(features: pd.DataFrame, targets: pd.DataFrame) -> pd.DataFrame:
@@ -62,6 +88,7 @@ def load_dataset(path: Path = RAW_DATA_PATH, *, fetch_if_missing: bool = True) -
             raise FileNotFoundError(path)
         return fetch_dataset(path)
     frame = pd.read_csv(path)
+    frame = frame.rename(columns={column: normalize_column_name(column) for column in frame})
     if TARGET_COLUMN not in frame.columns:
         raise ValueError(f"Missing target column: {TARGET_COLUMN}")
     return frame
